@@ -1,4 +1,5 @@
-config.yml
+config.json
 build/
 dist/
 Instalinker.spec
+Output/

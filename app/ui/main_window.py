@@ -62,7 +62,7 @@ class MainWindow(ttk.Window):
             defaultextension=".exe",
             filetypes=[("Executable", (".exe", ".cmd", ".bat", ".ps1"))]
         )
-        if program_file is None:
+        if program_file == "":
             return
         program_name = ttk.Querybox.get_string(
             "Enter program name", "Adding program",
@@ -81,7 +81,7 @@ class MainWindow(ttk.Window):
             defaultextension=".zip",
             filetypes=[("Zip File", (".zip",))]
         )
-        if zip_file is None:
+        if zip_file == "":
             return
         program_name = ttk.Querybox.get_string(
             "Enter program name", "Adding program",
