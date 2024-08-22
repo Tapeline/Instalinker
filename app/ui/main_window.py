@@ -18,27 +18,29 @@ class MainWindow(ttk.Window):
 
     def _setup_ui(self):
         self.title("Instalinker")
-        self.geometry("600x400")
+        self.geometry("450x400")
+        self.resizable(width=False, height=True)
+        self._button_bar = ttk.Frame(self)
         self._add_program_button = ttk.Button(
-            self,
+            self._button_bar,
             text="Add program",
             bootstyle="primary",
             command=self._handle_add_program
         )
         self._remove_program_button = ttk.Button(
-            self,
+            self._button_bar,
             text="Remove program",
             bootstyle="warning",
             command=self._handle_remove_program
         )
         self._install_program_button = ttk.Button(
-            self,
+            self._button_bar,
             text="Install program",
             bootstyle="success",
             command=self._handle_install_program
         )
         self._uninstall_program_button = ttk.Button(
-            self,
+            self._button_bar,
             text="Uninstall program",
             bootstyle="danger",
             command=self._handle_uninstall_program
@@ -48,11 +50,12 @@ class MainWindow(ttk.Window):
             self,
             listvariable=self._program_names_var
         )
-        self._add_program_button.pack()
-        self._remove_program_button.pack()
-        self._install_program_button.pack()
-        self._uninstall_program_button.pack()
-        self._program_list.pack()
+        self._add_program_button.grid(row=0, column=0)
+        self._remove_program_button.grid(row=0, column=1)
+        self._install_program_button.grid(row=0, column=2)
+        self._uninstall_program_button.grid(row=0, column=3)
+        self._button_bar.pack(fill="both")
+        self._program_list.pack(fill="both", expand="yes")
 
     def _handle_add_program(self):
         program_file = filedialog.askopenfilename(

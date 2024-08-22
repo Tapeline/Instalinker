@@ -1,0 +1,4 @@
+config.yml
+build/
+dist/
+Instalinker.spec
